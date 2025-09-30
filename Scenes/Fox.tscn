@@ -1,0 +1,85 @@
+[gd_scene load_steps=15 format=3 uid="uid://ce4q5knr0fcqj"]
+
+[ext_resource type="Texture2D" uid="uid://dkv1jgifrkt8q" path="res://assets/foxy/fox/fox_defeat_1.png" id="1_v8qml"]
+[ext_resource type="Texture2D" uid="uid://dc2m3jf8uguyu" path="res://assets/foxy/fox/fox_defeat_2.png" id="2_issx1"]
+[ext_resource type="Texture2D" uid="uid://cm35jxqst3tye" path="res://assets/foxy/fox/fox_defeat_3.png" id="3_oprky"]
+[ext_resource type="Texture2D" uid="uid://bcpoenc50cm6f" path="res://assets/foxy/fox/fox_hit_1.png" id="4_brdkw"]
+[ext_resource type="Texture2D" uid="uid://cpnrjocfgv50m" path="res://assets/foxy/fox/fox_hit_2.png" id="5_suais"]
+[ext_resource type="Texture2D" uid="uid://bij01i1v7nb15" path="res://assets/foxy/fox/fox_hit_3.png" id="6_nsj7t"]
+[ext_resource type="Texture2D" uid="uid://cwgjo8l0lmemi" path="res://assets/foxy/fox/fox_idle_1.png" id="7_jyf50"]
+[ext_resource type="Texture2D" uid="uid://cdiupfoo5xr6u" path="res://assets/foxy/fox/fox_idle_2.png" id="8_4hppb"]
+[ext_resource type="Texture2D" uid="uid://ddf11anrulx6e" path="res://assets/foxy/fox/fox_walk_1.png" id="9_xkbyj"]
+[ext_resource type="Texture2D" uid="uid://bsfb723jv8ohi" path="res://assets/foxy/fox/fox_walk_2.png" id="10_lbngg"]
+[ext_resource type="Texture2D" uid="uid://bj3ls24dmb1u0" path="res://assets/foxy/fox/fox_walk_3.png" id="11_6ho7h"]
+[ext_resource type="Texture2D" uid="uid://c7b68c2t2m054" path="res://assets/foxy/fox/fox_walk_4.png" id="12_igg3p"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h1p3a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_v8qml")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_issx1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_oprky")
+}],
+"loop": true,
+"name": &"Defeat",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_brdkw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_suais")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_nsj7t")
+}],
+"loop": true,
+"name": &"Hit",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_jyf50")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_4hppb")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_xkbyj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_lbngg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_6ho7h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_igg3p")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6b427"]
+
+[node name="Node2D" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_h1p3a")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_6b427")
