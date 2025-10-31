@@ -11,15 +11,31 @@ var flicker_timer := 0.0
 @export var has_blade: bool = false
 var blade_hit_area: Area2D;
 @export var blade_throw_speed: float = 300
+@export var skill_throw_speed: float = 200
 @onready var blade_factory: Node2DFactory = $Direction/BladeFactory
-
 @onready var jump_fx_factory: Node2DFactory = $Direction/JumpFXFactory
+@onready var skill_factory: Node2DFactory = $Direction/SkillFactory
 
 func _ready() -> void:
 	super._ready()
 	fsm = FSM.new(self, $States, $States/Idle)
+	add_to_group("player")
+	
 	if has_blade:
 		collected_blade()
+	
+	
+	#=====SKILL_SYSTEM=======================
+	#await get_tree().create_timer(1).timeout
+	#single_shot()
+	#
+	#await get_tree().create_timer(2).timeout
+	#multi_shot()
+	#
+	#await get_tree().create_timer(2).timeout
+	#radial(18)
+	#=====END_SKILL_SYSTEM==================
+	
 
 func _physics_process(delta: float) -> void:
 	super._physics_process(delta)
@@ -52,6 +68,34 @@ func throw_blade() -> void:
 	blade.direction = direction
 	blade.apply_impulse(throw_velocity)
 	throwed_blade()
+
+func single_shot(animation_name = "Fire"):
+	var skill = skill_factory.create() as Area2D
+	skill.play(animation_name)
+	if(direction == 1): 
+		skill.direction = Vector2.RIGHT
+	else:
+		skill.direction = Vector2.LEFT 
+	
+	
+func multi_shot(count: int = 3, delay: float = 0.3, animation_name = "Fire"):
+	for i in range(count):
+		single_shot(animation_name)
+		await get_tree().create_timer(delay).timeout
+	
+func angled_shot(angle, i):
+	var skill = skill_factory.create() as Area2D
+	
+	if i % 2 == 0:
+		skill.play("Fire")
+	else:
+		skill.play("WaterBlast")
+	
+	skill.direction = Vector2(cos(angle), sin(angle))
+
+func radial(count):
+	for i in range(count):
+		angled_shot( (float(i) / count) * 2.0 * PI, i )
 
 func throwed_blade() -> void:
 	has_blade = false

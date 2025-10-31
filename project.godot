@@ -11,14 +11,14 @@ config_version=5
 [application]
 
 config/name="BTL_Godot"
-run/main_scene="res://levels/test.tscn"
+run/main_scene="uid://c47jft3el2tid"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [display]
 
-window/size/viewport_width=480
-window/size/viewport_height=270
+window/size/viewport_width=1080
+window/size/viewport_height=720
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
@@ -72,3 +72,4 @@ throw={
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/size/viewport_height=270
