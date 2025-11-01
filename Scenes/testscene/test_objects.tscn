@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://bfc2p71ftmqt3"]
+[gd_scene load_steps=36 format=4 uid="uid://bfc2p71ftmqt3"]
 
 [ext_resource type="TileSet" uid="uid://clee474g44v61" path="res://assets/island/tileset.tres" id="1_45ksp"]
 [ext_resource type="PackedScene" uid="uid://d0jou4iuydvkg" path="res://Scenes/player/player.tscn" id="2_g7lev"]
@@ -26,8 +26,8 @@
 [ext_resource type="Texture2D" uid="uid://frimagh5yfit" path="res://assets/island/back_palm_trees/back_palm_tree_regular_03.png" id="24_hsomy"]
 [ext_resource type="Texture2D" uid="uid://cjcxdxoq8hp4l" path="res://assets/island/back_palm_trees/back_palm_tree_regular_04.png" id="25_pvovq"]
 [ext_resource type="PackedScene" uid="uid://by4bwryh7oobl" path="res://levels/objects/platforms/interactable_platform.tscn" id="27_wmjqa"]
-[ext_resource type="Texture2D" uid="uid://cx1cqnm2lrgxo" path="res://icon.svg" id="28_7eyp3"]
 [ext_resource type="PackedScene" uid="uid://cbqtsaa12jxkv" path="res://levels/objects/saw/saw.tscn" id="28_u6lr2"]
+[ext_resource type="PackedScene" uid="uid://b6urbbuhgc0x7" path="res://levels/objects/sensor_spike/sensor_spike.tscn" id="29_7eyp3"]
 [ext_resource type="PackedScene" uid="uid://cxdb52cgepv0d" path="res://levels/objects/Boulder/boulder.tscn" id="29_7x1wm"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_lmnj4"]
@@ -139,8 +139,6 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mv08x"]
 
 [node name="Stage" type="Node2D"]
 
@@ -264,17 +262,9 @@ position = Vector2(473, 165)
 [node name="Saw" parent="." instance=ExtResource("28_u6lr2")]
 position = Vector2(179, 140)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(563, 87)
-scale = Vector2(8.84, 0.24)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-scale = Vector2(6.11765, 6.11765)
-shape = SubResource("RectangleShape2D_mv08x")
-
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
-texture = ExtResource("28_7eyp3")
-
 [node name="Boulder" parent="." instance=ExtResource("29_7x1wm")]
 position = Vector2(88, 230)
 script = null
+
+[node name="Spike" parent="." instance=ExtResource("29_7eyp3")]
+position = Vector2(180, 237)
