@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dq06c3a77wb7f"]
+[gd_scene load_steps=7 format=3 uid="uid://cn5t8hmng56sl"]
 
 [ext_resource type="Texture2D" uid="uid://bn23ps3jhu4ru" path="res://assets/island/objects/moving_platform/moving_platform.png" id="1_irm8n"]
 
@@ -49,7 +49,7 @@ _data = {
 &"move": SubResource("Animation_1f3o5")
 }
 
-[node name="InteractablePlatform" type="Path2D"]
+[node name="Platform" type="Path2D"]
 curve = SubResource("Curve2D_1f3o5")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
