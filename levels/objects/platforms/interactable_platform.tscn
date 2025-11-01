@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cfevsw3ed4bnn" path="res://levels/objects/platforms/interactable_platform.gd" id="1_ca30f"]
 [ext_resource type="Texture2D" uid="uid://bn23ps3jhu4ru" path="res://assets/island/objects/moving_platform/moving_platform.png" id="1_nma6l"]
-[ext_resource type="Script" uid="uid://nvuabioddqmj" path="res://scripts/interactive_area_2d.gd" id="2_ca30f"]
+[ext_resource type="Script" uid="uid://0qvd447gmgon" path="res://Scripts/interactive_area_2d.gd" id="3_ca30f"]
 
 [sub_resource type="Curve2D" id="Curve2D_1f3o5"]
 _data = {
@@ -75,6 +75,7 @@ curve = SubResource("Curve2D_1f3o5")
 script = ExtResource("1_ca30f")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
+position = Vector2(4, 0)
 rotates = false
 
 [node name="StaticBody2D" type="AnimatableBody2D" parent="PathFollow2D"]
@@ -88,8 +89,7 @@ shape = SubResource("RectangleShape2D_lg0vp")
 
 [node name="InteractiveArea2D" type="Area2D" parent="PathFollow2D"]
 collision_mask = 2
-script = ExtResource("2_ca30f")
-metadata/_custom_type_script = "uid://nvuabioddqmj"
+script = ExtResource("3_ca30f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/InteractiveArea2D"]
 position = Vector2(0, -12.25)
